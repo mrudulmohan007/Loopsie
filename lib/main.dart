@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loopsie/constants.dart';
-import 'package:loopsie/views/widgets/screens/auth/login_screen.dart';
+import 'package:loopsie/views/screens/splash/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
