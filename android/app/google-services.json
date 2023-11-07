@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "997148917931",
+    "project_id": "loopsie-social-media-app",
+    "storage_bucket": "loopsie-social-media-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997148917931:android:b13d4b909ab7bf621df7ee",
+        "android_client_info": {
+          "package_name": "com.example.loopsie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMcR6IDRVv9xHEwlP7mTqYsqxXAPic2I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

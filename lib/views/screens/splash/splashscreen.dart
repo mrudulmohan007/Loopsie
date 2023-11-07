@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:loopsie/views/screens/auth/login_screen.dart';
 import 'package:loopsie/views/screens/auth/signup_screen.dart';
 
@@ -20,10 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(
         seconds: 1,
       ),
-      () => Navigator.pushReplacement(
-        context,
-        PageTransition(child: SignupScreen(), type: PageTransitionType.fade),
-      ),
+      () => Get.to(LoginScreen()),
     );
     super.initState();
   }

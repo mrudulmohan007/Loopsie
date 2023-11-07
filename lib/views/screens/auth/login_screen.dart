@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:loopsie/constants.dart';
+import 'package:loopsie/views/screens/auth/signup_screen.dart';
 import 'package:loopsie/views/widgets/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -71,7 +73,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    authController.loginUser(
+                        _emailController.text, _passwordController.text);
+                  },
                   child: const Center(
                     child: Text(
                       'Login',
@@ -94,7 +99,9 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => SignupScreen());
+                    },
                     child: const Text(
                       'Register',
                       style: TextStyle(

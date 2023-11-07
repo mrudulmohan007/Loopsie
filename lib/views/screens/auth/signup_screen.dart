@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loopsie/constants.dart';
 import 'package:loopsie/views/screens/auth/login_screen.dart';
 import 'package:loopsie/views/widgets/text_input_field.dart';
 
@@ -54,8 +55,7 @@ class SignupScreen extends StatelessWidget {
                     bottom: -10,
                     left: 80,
                     child: IconButton(
-                      onPressed: () {},
-                      // onPressed: () => authController.pickImage(),
+                      onPressed: () => authController.pickImage(),
                       icon: const Icon(
                         Icons.add_a_photo,
                       ),
@@ -113,6 +113,14 @@ class SignupScreen extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
+                  onTap: () {
+                    authController.registerUser(
+                      _usernameController.text,
+                      _emailController.text,
+                      _passwordController.text,
+                      authController.ProfilePhoto,
+                    );
+                  },
                   // onTap: () => authController.registerUser(
                   //   _usernameController.text,
                   //   _emailController.text,
