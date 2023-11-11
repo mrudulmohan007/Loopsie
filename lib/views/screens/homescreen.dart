@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // Import the Get package
 import 'package:loopsie/constants.dart';
+import 'package:loopsie/views/screens/add_video_screen.dart';
 import 'package:loopsie/views/widgets/custom_icon.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,10 +9,10 @@ class HomeScreen extends StatelessWidget {
       0.obs; // Create an observable variable for the selected page
 
   // Define a list of pages to display for each tab
-  final List<Widget> pages = [
+  final pages = [
     Text('Home Screen'),
     Text('Search Screen'),
-    Text('Add Video'),
+    AddVideoScreen(),
     Text('Messages Screen'),
     Text('Profile Screen'),
   ];
