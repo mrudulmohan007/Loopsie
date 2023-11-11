@@ -15,6 +15,7 @@ class UploadVideoController extends GetxController {
 
   _getThumbnail(String videoPath) async {
     final thumbnail = await VideoCompress.getFileThumbnail(videoPath);
+    return thumbnail;
   }
 
   Future<String> _uploadVideoToStorage(String id, String videoPath) async {
