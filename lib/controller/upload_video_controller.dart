@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:loopsie/constants.dart';
@@ -7,11 +8,26 @@ import 'package:video_compress/video_compress.dart';
 import 'dart:io';
 
 class UploadVideoController extends GetxController {
-  _compressVideo(String videoPath) async {
-    final compressedVideo = await VideoCompress.compressVideo(videoPath,
-        quality: VideoQuality.MediumQuality);
-    return compressedVideo!.file;
-  }
+  // _compressVideo(String videoPath) async {
+  //   try {
+  //     final compressedVideo = await VideoCompress.compressVideo(
+  //       videoPath,
+  //       quality: VideoQuality.MediumQuality,
+  //     );
+
+  //     if (compressedVideo != null && compressedVideo.file != null) {
+  //       print("Compressed video: ${compressedVideo.file}");
+  //       return compressedVideo.file!;
+  //     } else {
+  //       print(
+  //           "Compression failed: compressedVideo or compressedVideo.file is null");
+  //       return null;
+  //     }
+  //   } catch (e) {
+  //     print("Error during video compression: $e");
+  //     return null;
+  //   }
+  // }
 
   _getThumbnail(String videoPath) async {
     final thumbnail = await VideoCompress.getFileThumbnail(videoPath);
@@ -20,10 +36,15 @@ class UploadVideoController extends GetxController {
 
   Future<String> _uploadVideoToStorage(String id, String videoPath) async {
     try {
+      // print('successfull');
+      // print('video path is: $videoPath');
       Reference ref = firebaseStorage.ref().child('videos').child(id);
-      UploadTask uploadTask = ref.putFile(await _compressVideo(videoPath));
+      // print('ref is $ref');
+      UploadTask uploadTask = ref.putFile(File(videoPath));
+      // print('upload tasks is:$uploadTask');
       TaskSnapshot snap = await uploadTask;
       String downloadUrl = await snap.ref.getDownloadURL();
+      // print("Download url is : $downloadUrl");
       return downloadUrl;
     } catch (e) {
       print("Error uploading video: $e");
@@ -57,6 +78,8 @@ class UploadVideoController extends GetxController {
       int len = allDocs.docs.length;
       String? videoUrl = await _uploadVideoToStorage("video $len", videoPath);
       String? thumbnail = await _uploadImageTostorage("video $len", videoPath);
+      print("Compressed Video: $videoUrl");
+      print("Thumbnail: $thumbnail");
       //thumbnail of video
       if (videoUrl != null && thumbnail != null) {
         Video video = Video(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // Import the Get package
 import 'package:loopsie/constants.dart';
 import 'package:loopsie/views/screens/add_video_screen.dart';
+import 'package:loopsie/views/screens/video_screen.dart';
 import 'package:loopsie/views/widgets/custom_icon.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   // Define a list of pages to display for each tab
   final pages = [
-    Text('Home Screen'),
+    VideoScreen(),
     Text('Search Screen'),
     AddVideoScreen(),
     Text('Messages Screen'),
